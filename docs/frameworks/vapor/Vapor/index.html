@@ -58,7 +58,7 @@
       <div class="ssidebarwrapper">
         <h3>
           <a class="index-link" href="https://github.com/OpenKitten/MongoKitten">MongoDB Swift Driver</a>
-          <a class="version pull-right" href="http://docs.openkitten.org">3.1.0</a>
+          <a class="version pull-right" href="http://docs.openkitten.org">4.0.0</a>
         </h3>
 
         
@@ -682,97 +682,6 @@
 
 
 
-<li class="toctree-l3 ">
-  <a href="/tutorials/mongokitten/connect/" class="">
-      <i class='fa'></i>
-      <span>Connect to MongoDB</span>
-      
-  </a>
-    <ul >
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <li class="toctree-l4">
-    <a href="/tutorials/mongokitten/connect/authenticating/">
-        <i class='fa'></i>
-        Authentication
-    </a>
-  </li>
-
-
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <li class="toctree-l4">
-    <a href="/tutorials/mongokitten/connect/ssl/">
-        <i class='fa'></i>
-        SSL Settings
-    </a>
-  </li>
-
-
-        
-        
-    </ul>
-  </li>
-
-
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <li class="toctree-l3">
     <a href="/tutorials/mongokitten/QueryBuilder/">
         <i class='fa'></i>
@@ -860,35 +769,6 @@
 
 
 
-    <li class="toctree-l3">
-    <a href="/tutorials/mongokitten/Cursor/">
-        <i class='fa'></i>
-        Cursor
-    </a>
-  </li>
-
-
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l3 ">
   <a href="/tutorials/mongokitten/crud/" class="">
       <i class='fa'></i>
@@ -896,35 +776,6 @@
       
   </a>
     <ul >
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <li class="toctree-l4">
-    <a href="/tutorials/mongokitten/crud/create/">
-        <i class='fa'></i>
-        Create/Insert
-    </a>
-  </li>
-
-
-        
         
         
         
@@ -1042,6 +893,35 @@
 
         
         
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/create/">
+        <i class='fa'></i>
+        Create/Insert
+    </a>
+  </li>
+
+
+        
+        
     </ul>
   </li>
 
@@ -1130,6 +1010,97 @@
         <i class='fa'></i>
         GridFS
     </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3 ">
+  <a href="/tutorials/mongokitten/connect/" class="">
+      <i class='fa'></i>
+      <span>Connect to MongoDB</span>
+      
+  </a>
+    <ul >
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/connect/authenticating/">
+        <i class='fa'></i>
+        Authentication
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/connect/ssl/">
+        <i class='fa'></i>
+        SSL Settings
+    </a>
+  </li>
+
+
+        
+        
+    </ul>
   </li>
 
 
@@ -1509,7 +1480,7 @@
 
 
    
-<a class="edit-link" href="https://github.com/mongodb/MongoKitten/blob/mongokitten3/docs/reference/content/frameworks/Vapor/Vapor.md" target="_blank" title="Edit frameworks/Vapor/Vapor.md on GitHub"><i class="fa fa-pencil-square-o"></i></a>
+<a class="edit-link" href="https://github.com/mongodb/MongoKitten/blob/mongokitten4/docs/reference/content/frameworks/Vapor/Vapor.md" target="_blank" title="Edit frameworks/Vapor/Vapor.md on GitHub"><i class="fa fa-pencil-square-o"></i></a>
 
 
 
@@ -1542,6 +1513,31 @@ It has a highly readable API and is written in the same language you use to inte
 
 <p>For each library there are different possible integrations that can be created. Some overlap.</p>
 
+<h2 id="installation">Installation</h2>
+
+<p>To use MongoKitten 4 with Vapor you will need to have Vapor 2 up and running. First you&rsquo;ll need to install Swift 3.1 and OpenSSL.</p>
+
+<p>For macOS users this means updating to Xcode 8.3 and running <code>curl https://raw.githubusercontent.com/vapor/vapor/scripts/Utilities/openssl.sh | bash</code>. This will download and run the Vapor OpenSSL setup script which will guide you through any issues.</p>
+
+<p>For Linux (Ubuntu) users you&rsquo;ll very likely already have OpenSSL set up. You&rsquo;ll need to install Swift 3.1 from <a href="https://swift.org/download">Swift.org</a></p>
+
+<p>The next step is to update your <code>Package.swift</code>. The dependencies part must at least contain the two packages below.</p>
+
+<pre><code class="language-swift">let package = Package(
+  name: &quot;BeerBudzAPI&quot;,
+  dependencies: [
+    .Package(url: &quot;https://github.com/vapor/vapor.git&quot;, Version(2,0,0, prereleaseIdentifiers: [&quot;beta&quot;])),
+    .Package(url: &quot;https://github.com/OpenKitten/MongoKitten.git&quot;, Version(0,0,22)),
+  ]
+)
+</code></pre>
+
+<p>After this, the next step is to fetch the new dependencies. This means cleaning up the old ones and fetching the new ones.</p>
+
+<p><code>swift package update</code> will update the packages folder after which your project should be ready for development.</p>
+
+<p>Xcode users will need to update their Xcode project file using <code>swift package generate-xcodeproj</code>.</p>
+
 <h2 id="mongokitten">MongoKitten</h2>
 
 <p>When you&rsquo;re using one of the above three libraries, one of the types you&rsquo;ll often use is ObjectId. It is a lightweight unique identifier that is easily representable as a String due to it&rsquo;s relatively small binary size.</p>
@@ -1551,7 +1547,7 @@ It has a highly readable API and is written in the same language you use to inte
 <pre><code class="language-swift">import Vapor
 import BSON
 
-extension ObjectId : StringInitializable {
+extension ObjectId {
   public init?(from string: String) throws {
     try self.init(string)
   }
@@ -1566,7 +1562,7 @@ import MongoKitten
 let drop = Droplet()
 let db = Database(&quot;mongodb://localhost&quot;)
 
-drop.get(&quot;articles&quot;, ObjectId.self) { request, articleId in
+drop.get(&quot;articles&quot;, ObjectId.init) { request, articleId in
   guard let article = try db[&quot;articles&quot;].findOne(&quot;_id&quot; == articleId) else {
     // TODO: Article not found
   }
@@ -1591,7 +1587,7 @@ drop.get(&quot;articles&quot;, ObjectId.self) { request, articleId in
 
 <p>This model doesn&rsquo;t conform to StringInitializable, yes. But this is easily added in an extension.</p>
 
-<pre><code class="language-swift">extension Article : StringInitializable {
+<pre><code class="language-swift">extension Article {
   public init?(from string: String) throws {
     guard let me = try Article.findOne(&quot;_id&quot; == try ObjectId(string)) else {
       return nil
@@ -1610,7 +1606,7 @@ import Meow
 let drop = Droplet()
 Meow.init(&quot;mongodb://localhost&quot;)
 
-drop.get(&quot;articles&quot;, Article.self) { request, article in
+drop.get(&quot;articles&quot;, Article.init) { request, article in
   // TODO: Present article
 }
 </code></pre>
@@ -1636,6 +1632,7 @@ drop.get(&quot;articles&quot;, Article.self) { request, article in
 <ul>
 <li><a href="#vapor">Vapor</a>
 <ul>
+<li><a href="#installation">Installation</a></li>
 <li><a href="#mongokitten">MongoKitten</a></li>
 <li><a href="#meowmongo">MeowMongo</a></li>
 </ul></li>
@@ -1658,7 +1655,7 @@ drop.get(&quot;articles&quot;, Article.self) { request, article in
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
    URL_ROOT:    "http://docs.openkitten.org",
-   VERSION:     "3.1.0",
+   VERSION:     "4.0.0",
    COLLAPSE_INDEX: false,
    FILE_SUFFIX: '.html',
    HAS_SOURCE:  true

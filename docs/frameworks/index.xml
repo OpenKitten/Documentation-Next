@@ -42,6 +42,31 @@ It has a highly readable API and is written in the same language you use to inte
 
 &lt;p&gt;For each library there are different possible integrations that can be created. Some overlap.&lt;/p&gt;
 
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;To use MongoKitten 4 with Vapor you will need to have Vapor 2 up and running. First you&amp;rsquo;ll need to install Swift 3.1 and OpenSSL.&lt;/p&gt;
+
+&lt;p&gt;For macOS users this means updating to Xcode 8.3 and running &lt;code&gt;curl https://raw.githubusercontent.com/vapor/vapor/scripts/Utilities/openssl.sh | bash&lt;/code&gt;. This will download and run the Vapor OpenSSL setup script which will guide you through any issues.&lt;/p&gt;
+
+&lt;p&gt;For Linux (Ubuntu) users you&amp;rsquo;ll very likely already have OpenSSL set up. You&amp;rsquo;ll need to install Swift 3.1 from &lt;a href=&#34;https://swift.org/download&#34;&gt;Swift.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The next step is to update your &lt;code&gt;Package.swift&lt;/code&gt;. The dependencies part must at least contain the two packages below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let package = Package(
+  name: &amp;quot;BeerBudzAPI&amp;quot;,
+  dependencies: [
+    .Package(url: &amp;quot;https://github.com/vapor/vapor.git&amp;quot;, Version(2,0,0, prereleaseIdentifiers: [&amp;quot;beta&amp;quot;])),
+    .Package(url: &amp;quot;https://github.com/OpenKitten/MongoKitten.git&amp;quot;, Version(0,0,22)),
+  ]
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After this, the next step is to fetch the new dependencies. This means cleaning up the old ones and fetching the new ones.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;swift package update&lt;/code&gt; will update the packages folder after which your project should be ready for development.&lt;/p&gt;
+
+&lt;p&gt;Xcode users will need to update their Xcode project file using &lt;code&gt;swift package generate-xcodeproj&lt;/code&gt;.&lt;/p&gt;
+
 &lt;h2 id=&#34;mongokitten&#34;&gt;MongoKitten&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;re using one of the above three libraries, one of the types you&amp;rsquo;ll often use is ObjectId. It is a lightweight unique identifier that is easily representable as a String due to it&amp;rsquo;s relatively small binary size.&lt;/p&gt;
@@ -51,7 +76,7 @@ It has a highly readable API and is written in the same language you use to inte
 &lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;import Vapor
 import BSON
 
-extension ObjectId : StringInitializable {
+extension ObjectId {
   public init?(from string: String) throws {
     try self.init(string)
   }
@@ -66,7 +91,7 @@ import MongoKitten
 let drop = Droplet()
 let db = Database(&amp;quot;mongodb://localhost&amp;quot;)
 
-drop.get(&amp;quot;articles&amp;quot;, ObjectId.self) { request, articleId in
+drop.get(&amp;quot;articles&amp;quot;, ObjectId.init) { request, articleId in
   guard let article = try db[&amp;quot;articles&amp;quot;].findOne(&amp;quot;_id&amp;quot; == articleId) else {
     // TODO: Article not found
   }
@@ -91,7 +116,7 @@ drop.get(&amp;quot;articles&amp;quot;, ObjectId.self) { request, articleId in
 
 &lt;p&gt;This model doesn&amp;rsquo;t conform to StringInitializable, yes. But this is easily added in an extension.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;extension Article : StringInitializable {
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;extension Article {
   public init?(from string: String) throws {
     guard let me = try Article.findOne(&amp;quot;_id&amp;quot; == try ObjectId(string)) else {
       return nil
@@ -110,7 +135,7 @@ import Meow
 let drop = Droplet()
 Meow.init(&amp;quot;mongodb://localhost&amp;quot;)
 
-drop.get(&amp;quot;articles&amp;quot;, Article.self) { request, article in
+drop.get(&amp;quot;articles&amp;quot;, Article.init) { request, article in
   // TODO: Present article
 }
 &lt;/code&gt;&lt;/pre&gt;

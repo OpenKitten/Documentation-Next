@@ -36,9 +36,9 @@ cd myproject
 
 &lt;p&gt;Next, install the driver dependency.&lt;/p&gt;
 
-&lt;p&gt;Add this to your &lt;code&gt;Package.swift&lt;/code&gt; for the stable version&lt;/p&gt;
+&lt;p&gt;Add this to your &lt;code&gt;Package.swift&lt;/code&gt; for the beta version&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;.Package(url: &amp;quot;https://github.com/OpenKitten/MongoKitten.git&amp;quot;, &amp;quot;4.0.0-beta1&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.Package(url: &amp;quot;https://github.com/OpenKitten/MongoKitten.git&amp;quot;, majorVersion: Version(0,0,22))&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Fetch the dependencies&lt;/p&gt;
 
