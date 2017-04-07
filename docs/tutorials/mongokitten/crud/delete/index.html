@@ -461,6 +461,33 @@
 
 
   
+
+
+        
+          
+        
+      
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+  
     
     
       
@@ -571,6 +598,12 @@
       
       
         
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1093,6 +1126,35 @@
 
 
     <li class="toctree-l3">
+    <a href="/tutorials/mongokitten/Optimizations/">
+        <i class='fa'></i>
+        Optimizations
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l3">
     <a href="/tutorials/mongokitten/QueryBuilder/">
         <i class='fa'></i>
         QueryBuilder
@@ -1272,6 +1334,64 @@
     <a href="/tutorials/mongokitten/crud/delete/">
         <i class='fa'></i>
         Delete/Remove
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/Distinct/">
+        <i class='fa'></i>
+        Distinct
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/FindAndMutate/">
+        <i class='fa'></i>
+        Find and mutate
     </a>
   </li>
 
@@ -1929,17 +2049,15 @@
 
 <p>The above example will remove all Documents.</p>
 
-<p>You can specify requirements for the documents that will be removed by adding a <code>matching:</code> parameter. <a href="/tutorials/mongokitten/QueryBuilder/">In there you must provide a Query.</a></p>
+<p>You can specify requirements for the documents that will be removed by adding <a href="/tutorials/mongokitten/QueryBuilder/">a Query for the first parameter.</a></p>
 
 <pre><code class="language-swift">try collection.remove(&quot;first_name&quot; == &quot;Joannis&quot;) // Returns 1, only one user named &quot;Joannis&quot; exists
 </code></pre>
 
-<p>If you only want to remove one matching document:</p>
+<p>If you only want to remove the first matching document:</p>
 
 <pre><code class="language-swift">try collection.remove(limiting: 1) // returns 1, only one Document may be removed. Any document will do because there is no matching filter
 </code></pre>
-
-<p><a href="http://mongokitten.openkitten.org/Classes/Collection.html#/s:FC11MongoKitten10Collection6removeFzT8matchingGSaT6filterVS_5Query5limitVs5Int32__12writeConcernGSqOS_12WriteConcern_15stoppingOnErrorGSqSb__Si">For more information about removing documents, click here</a></p>
 
 
 
@@ -1956,8 +2074,8 @@
   
   
   <div class="pull-right">
-  <a class="navigation next" href="/tutorials/mongokitten/crud/count/">
-    Count <i class="fa fa-long-arrow-right"> </i>
+  <a class="navigation next" href="/tutorials/mongokitten/crud/Distinct/">
+    Distinct <i class="fa fa-long-arrow-right"> </i>
   </a>
   
 </div>

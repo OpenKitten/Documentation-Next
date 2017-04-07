@@ -461,7 +461,88 @@
 
 
   
+
+
+        
+          
+        
+      
     
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+  
+    
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+  
+
+
+        
+          
+        
+      
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+  
+
+
+        
+          
+        
+      
     
       
       
@@ -1188,6 +1269,35 @@
 
 
     <li class="toctree-l3">
+    <a href="/tutorials/mongokitten/Optimizations/">
+        <i class='fa'></i>
+        Optimizations
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l3">
     <a href="/tutorials/mongokitten/QueryBuilder/">
         <i class='fa'></i>
         QueryBuilder
@@ -1363,6 +1473,64 @@
     <a href="/tutorials/mongokitten/crud/delete/">
         <i class='fa'></i>
         Delete/Remove
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/Distinct/">
+        <i class='fa'></i>
+        Distinct
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/FindAndMutate/">
+        <i class='fa'></i>
+        Find and mutate
     </a>
   </li>
 
@@ -2025,18 +2193,14 @@
 
 <h2 id="dropping-removing-databases-and-collections">Dropping/removing databases and collections</h2>
 
-<p><code>try database.drop()</code> or <code>try collection.drop()</code></p>
+<p><code>try database.drop()</code> or <code>try collection.drop()</code> will allow you to drop a database&rsquo;s or collection&rsquo;s contents.</p>
 
 <h2 id="modifying-collections">Modifying collections</h2>
 
 <p>This requires flags to be provided as a Document.
 All available flags can be found <a href="https://docs.mongodb.com/manual/reference/command/collMod/#flags">here.</a></p>
 
-<p><code>try collection.modify(flags: flags)</code></p>
-
-<h2 id="renaming-collections">Renaming collections</h2>
-
-<p><code>try collection.rename(to: &quot;newCollectionName&quot;)</code></p>
+<p><code>try collection.set(flags: flags)</code></p>
 
 
 
@@ -2073,7 +2237,6 @@ All available flags can be found <a href="https://docs.mongodb.com/manual/refere
 <li><a href="#creating-collections">Creating collections</a></li>
 <li><a href="#dropping-removing-databases-and-collections">Dropping/removing databases and collections</a></li>
 <li><a href="#modifying-collections">Modifying collections</a></li>
-<li><a href="#renaming-collections">Renaming collections</a></li>
 </ul></li>
 </ul>
 </nav>

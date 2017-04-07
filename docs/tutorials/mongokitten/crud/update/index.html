@@ -461,6 +461,33 @@
 
 
   
+
+
+        
+          
+        
+      
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+  
     
     
       
@@ -544,6 +571,12 @@
       
       
         
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1069,6 +1102,35 @@
 
 
     <li class="toctree-l3">
+    <a href="/tutorials/mongokitten/Optimizations/">
+        <i class='fa'></i>
+        Optimizations
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l3">
     <a href="/tutorials/mongokitten/QueryBuilder/">
         <i class='fa'></i>
         QueryBuilder
@@ -1248,6 +1310,64 @@
     <a href="/tutorials/mongokitten/crud/delete/">
         <i class='fa'></i>
         Delete/Remove
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/Distinct/">
+        <i class='fa'></i>
+        Distinct
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/FindAndMutate/">
+        <i class='fa'></i>
+        Find and mutate
     </a>
   </li>
 
@@ -1924,7 +2044,7 @@
   &quot;key1&quot;: false
 ]
 
-try collection.update(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document)
+try collection.update(&quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document)
 </code></pre>
 
 <p>Will result in the following database Document:</p>
@@ -1945,7 +2065,7 @@ try collection.update(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcd
   ]
 ]
 
-try collection.update(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document)
+try collection.update(&quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document)
 </code></pre>
 
 <p>Will result in the following Document.</p>
@@ -1977,17 +2097,17 @@ try collection.update(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcd
 try collection.insert(document)
 
 // Remove the document
-try collection.remove(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;))
+try collection.remove(&quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;))
 
 document[&quot;key2&quot;] = 5
 
 // The document doesn't exist anymore, so it will be upserted
-collection.update(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document, upserting: true)
+collection.update(&quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document, upserting: true)
 
 document[&quot;key1&quot;] = true
 
 // The document already exist, so it will be updated
-collection.update(matching: &quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document, upserting: true)
+collection.update(&quot;_id&quot; == try ObjectId(&quot;abcdefabcdefabcdefabcdef&quot;), to: document, upserting: true)
 </code></pre>
 
 <p>By default, only one (the first) matching Document will be updated. If you want to update all documents you&rsquo;ll need to specify <code>multiple:</code> to be <code>true</code>.</p>

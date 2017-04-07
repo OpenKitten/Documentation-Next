@@ -461,6 +461,33 @@
 
 
   
+
+
+        
+          
+        
+      
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+  
     
     
       
@@ -517,6 +544,12 @@
       
       
         
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1045,6 +1078,35 @@
 
 
     <li class="toctree-l3">
+    <a href="/tutorials/mongokitten/Optimizations/">
+        <i class='fa'></i>
+        Optimizations
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l3">
     <a href="/tutorials/mongokitten/QueryBuilder/">
         <i class='fa'></i>
         QueryBuilder
@@ -1224,6 +1286,64 @@
     <a href="/tutorials/mongokitten/crud/delete/">
         <i class='fa'></i>
         Delete/Remove
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/Distinct/">
+        <i class='fa'></i>
+        Distinct
+    </a>
+  </li>
+
+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li class="toctree-l4">
+    <a href="/tutorials/mongokitten/crud/FindAndMutate/">
+        <i class='fa'></i>
+        Find and mutate
     </a>
   </li>
 
@@ -1876,8 +1996,8 @@
 
 <p><code>find</code> can be ran without arguments to fetch every Document in the collection.</p>
 
-<p><code>try collection.find()</code> will return a <a href="No page found with path or logical name "tutorials/mongokitten/Cursor.md".
-">Cursor</a> containing all Documents. Cursors are an important part of the MongoKitten flow but we&rsquo;ll cover them in short here.</p>
+<p><code>try collection.find()</code> will return a <a href="No page found with path or logical name "tutorials/mongokitten/CollectionSlice.md".
+">CollectionSlice<Document></a> containing all Documents. Cursors are an important part of the MongoKitten flow but we&rsquo;ll cover them in short here.</p>
 
 <p><code>try collection.findOne()</code> will return a single <code>Document?</code>. Which is nil if no Document could be found.</p>
 
@@ -1895,12 +2015,12 @@ This is recommended when you definitely need all results. Looping over a Cursor 
   &quot;username&quot;: &quot;bob&quot;
 ]
 
-try collection.find(matching: query)
+try collection.find(query)
 </code></pre>
 
 <pre><code class="language-swift">let query: Query = &quot;username&quot; == &quot;bob&quot;
 
-try collection.find(matching: query)
+try collection.find(query)
 </code></pre>
 
 <p>If the order of the results matters, for example, when presenting your user a table of results based on their preference. Alphabetically, numerically or otherwise, you can specify a <code>Sort</code> order where you can specify per-field the order in which the fields must be sorted.</p>

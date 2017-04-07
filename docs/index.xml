@@ -773,35 +773,31 @@ let database = Database(named: &amp;quot;my-database-name&amp;quot;, atServer: s
 
 &lt;p&gt;The above example will remove all Documents.&lt;/p&gt;
 
-&lt;p&gt;You can specify requirements for the documents that will be removed by adding a &lt;code&gt;matching:&lt;/code&gt; parameter. &lt;a href=&#34;http://docs.openkitten.org/tutorials/mongokitten/QueryBuilder/&#34;&gt;In there you must provide a Query.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can specify requirements for the documents that will be removed by adding &lt;a href=&#34;http://docs.openkitten.org/tutorials/mongokitten/QueryBuilder/&#34;&gt;a Query for the first parameter.&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;try collection.remove(&amp;quot;first_name&amp;quot; == &amp;quot;Joannis&amp;quot;) // Returns 1, only one user named &amp;quot;Joannis&amp;quot; exists
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If you only want to remove one matching document:&lt;/p&gt;
+&lt;p&gt;If you only want to remove the first matching document:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;try collection.remove(limiting: 1) // returns 1, only one Document may be removed. Any document will do because there is no matching filter
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://mongokitten.openkitten.org/Classes/Collection.html#/s:FC11MongoKitten10Collection6removeFzT8matchingGSaT6filterVS_5Query5limitVs5Int32__12writeConcernGSqOS_12WriteConcern_15stoppingOnErrorGSqSb__Si&#34;&gt;For more information about removing documents, click here&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Frameworks</title>
-      <link>http://docs.openkitten.org/frameworks/Frameworks/</link>
+      <title>Distinct</title>
+      <link>http://docs.openkitten.org/tutorials/mongokitten/crud/Distinct/</link>
       <pubDate>Wed, 14 Dec 2016 12:36:56 +0000</pubDate>
       
-      <guid>http://docs.openkitten.org/frameworks/Frameworks/</guid>
+      <guid>http://docs.openkitten.org/tutorials/mongokitten/crud/Distinct/</guid>
       <description>
 
-&lt;h1 id=&#34;tutorials&#34;&gt;Tutorials&lt;/h1&gt;
+&lt;h1 id=&#34;distinct&#34;&gt;Distinct&lt;/h1&gt;
 
-&lt;p&gt;This section contains all information about using these libraries in combination with popular frameworks.&lt;/p&gt;
+&lt;p&gt;Distinct returns all distinct values that are found under a key in a collection. An example of this would be &amp;ldquo;all distinct jobs for our user&amp;rsquo;s profiles&amp;rdquo;. This can be limited, too. An example would be &amp;ldquo;all distinct values for the field &amp;lsquo;job&amp;rsquo; in the IT sector&amp;rdquo;.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.openkitten.org/frameworks/vapor/Vapor/&#34;&gt;Vapor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;let distinctJobTitles = db[&amp;quot;users&amp;quot;].distinct(on: &amp;quot;job&amp;quot;, filtering: &amp;quot;sector&amp;quot; == &amp;quot;IT&amp;quot;)&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     
